@@ -19,9 +19,10 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             /*Making another change*/
 
             /*transfers are up*/
-            /*transfers are up*/ /*transfers are up*/
+            public void name()
+            {
 
-            /*Making another change*/
+            }
         }
     }
 }
