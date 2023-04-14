@@ -28,42 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.back_btn = new System.Windows.Forms.Button();
-            this.display_btn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            back_btn = new Button();
+            display_btn = new Button();
+            SuspendLayout();
             // 
             // back_btn
             // 
-            this.back_btn.Location = new System.Drawing.Point(38, 93);
-            this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(94, 29);
-            this.back_btn.TabIndex = 0;
-            this.back_btn.Text = "BOOK";
-            this.back_btn.UseVisualStyleBackColor = true;
-            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
+            back_btn.Location = new Point(38, 93);
+            back_btn.Name = "back_btn";
+            back_btn.Size = new Size(94, 29);
+            back_btn.TabIndex = 0;
+            back_btn.Text = "BOOK";
+            back_btn.UseVisualStyleBackColor = true;
+            back_btn.Click += back_btn_Click;
             // 
             // display_btn
             // 
-            this.display_btn.Location = new System.Drawing.Point(174, 93);
-            this.display_btn.Name = "display_btn";
-            this.display_btn.Size = new System.Drawing.Size(94, 29);
-            this.display_btn.TabIndex = 1;
-            this.display_btn.Text = "DISPLAY";
-            this.display_btn.UseVisualStyleBackColor = true;
+            display_btn.Location = new Point(174, 93);
+            display_btn.Name = "display_btn";
+            display_btn.Size = new Size(94, 29);
+            display_btn.TabIndex = 1;
+            display_btn.Text = "DISPLAY";
+            display_btn.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 200);
-            this.Controls.Add(this.display_btn);
-            this.Controls.Add(this.back_btn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "START SCREEN";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(328, 204);
+            Controls.Add(display_btn);
+            Controls.Add(back_btn);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Name = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "START SCREEN";
+            ResumeLayout(false);
         }
 
         #endregion

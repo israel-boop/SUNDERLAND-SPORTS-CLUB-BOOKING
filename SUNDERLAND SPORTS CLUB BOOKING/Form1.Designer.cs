@@ -40,6 +40,11 @@
             progressBar1.Size = new Size(449, 12);
             progressBar1.TabIndex = 0;
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);

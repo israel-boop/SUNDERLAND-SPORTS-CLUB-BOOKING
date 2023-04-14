@@ -15,13 +15,20 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
         public Form3()
         {
             InitializeComponent();
-            /* Timothy was here*/
-            /*Making another change*/
 
-            /*transfers are up*/
-            /*transfers are up*/ /*transfers are up*/
-            makiung
-            /*Making another change*/
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            //try and parse to make sure input is within allowed range
+            int daysRented;
+            if (int.TryParse(duration_txtbox.Text, out daysRented)) ;
+            {
+                if (daysRented > 4 || daysRented < 1)
+                {
+                    MessageBox.Show("Please Pick between 1 to 4 Hours");
+                }
+            }
         }
     }
 }
