@@ -30,5 +30,32 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
                 }
             }
         }
+
+        private void makeBooking_Click(object sender, EventArgs e)
+        {
+            string id = id_txtbox.Text;
+
+
+            if (string.IsNullOrEmpty(id)
+                || string.IsNullOrEmpty(starttime_txtbox.Text)
+                || string.IsNullOrEmpty(duration_txtbox.Text)
+                || string.IsNullOrEmpty(activity_txtbox.Text)
+                || string.IsNullOrEmpty(contactname_txtbox.Text)
+                || string.IsNullOrEmpty(contactemail_txtbox.Text)
+                )
+            {
+                notificationLabel.Text = " Fields cannot be empty()";
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            notificationLabel.Hide();
+        }
     }
 }

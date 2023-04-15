@@ -35,9 +35,10 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(12, 132);
+            progressBar1.Location = new Point(10, 99);
+            progressBar1.Margin = new Padding(3, 2, 3, 2);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(449, 12);
+            progressBar1.Size = new Size(393, 9);
             progressBar1.TabIndex = 0;
             // 
             // timer1
@@ -47,11 +48,12 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(473, 156);
+            ClientSize = new Size(414, 195);
             Controls.Add(progressBar1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SPLASH SCREEN";
