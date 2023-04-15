@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SUNDERLAND_SPORTS_CLUB_BOOKING.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,6 +37,11 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
         private void makeBooking_Click(object sender, EventArgs e)
         {
             string id = id_txtbox.Text;
+            string duration = duration_txtbox.Text;
+            string startTime = starttime_txtbox.Text;
+            string activity  = activity_txtbox.Text;
+            string contactName = contactname_txtbox.Text;
+            string contactEmail = contactemail_txtbox.Text;
 
 
             if (string.IsNullOrEmpty(id)
@@ -44,12 +52,31 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
                 || string.IsNullOrEmpty(contactemail_txtbox.Text)
                 )
             {
-                notificationLabel.Text = " Fields cannot be empty()";
+
+                notificationLabel.Show();
+                notificationLabel.Text = " Fields cannot be empty";
 
             }
             else
             {
+                BookingClass bkclass = new BookingClass(id, contactName,contactEmail,activity,duration,startTime);
+                BinaryFormatter bf = new BinaryFormatter();
 
+                FileStream serialiseFunc = new FileStream("booking.binary", FileMode.Create, FileAccess.Write, FileShare.None);
+                try
+                {
+                    using (serialiseFunc)
+                    {
+                        bf.Serialize(serialiseFunc, bkclass);
+                        notificationLabel.Show();
+                        notificationLabel.Text = "Object Serialized";
+                    }
+                }
+                catch
+                {
+                    notificationLabel.Show();
+                    notificationLabel.Text = "An error has occured";
+                }
             }
         }
 

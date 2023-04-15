@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SUNDERLAND_SPORTS_CLUB_BOOKING.Models
 {
+    [Serializable]
     internal class BookingClass
     {   
         string bookingID;
