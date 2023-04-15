@@ -23,5 +23,12 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             go.Show();
             this.Hide();
         }
+
+        private void display_btn_Click(object sender, EventArgs e)
+        {
+            BookingManager go = new BookingManager();
+            go.Show();
+            this.Hide();
+        }
     }
 }

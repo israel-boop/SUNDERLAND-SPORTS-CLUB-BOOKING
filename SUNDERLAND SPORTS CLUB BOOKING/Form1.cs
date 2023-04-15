@@ -13,7 +13,7 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
         {
             // when the progressbar is 100, the timer stops and takes the user into the login form
             timer1.Enabled = true;
-            progressBar1.Increment(2);
+            progressBar1.Increment(10);
             if (progressBar1.Value == 100)
             {
                 timer1.Enabled = false;

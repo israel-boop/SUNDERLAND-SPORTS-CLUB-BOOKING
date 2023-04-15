@@ -34,9 +34,10 @@
             // 
             // back_btn
             // 
-            back_btn.Location = new Point(38, 93);
+            back_btn.Location = new Point(33, 70);
+            back_btn.Margin = new Padding(3, 2, 3, 2);
             back_btn.Name = "back_btn";
-            back_btn.Size = new Size(94, 29);
+            back_btn.Size = new Size(82, 22);
             back_btn.TabIndex = 0;
             back_btn.Text = "BOOK";
             back_btn.UseVisualStyleBackColor = true;
@@ -44,21 +45,24 @@
             // 
             // display_btn
             // 
-            display_btn.Location = new Point(174, 93);
+            display_btn.Location = new Point(152, 70);
+            display_btn.Margin = new Padding(3, 2, 3, 2);
             display_btn.Name = "display_btn";
-            display_btn.Size = new Size(94, 29);
+            display_btn.Size = new Size(82, 22);
             display_btn.TabIndex = 1;
             display_btn.Text = "DISPLAY";
             display_btn.UseVisualStyleBackColor = true;
+            display_btn.Click += display_btn_Click;
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(328, 204);
+            ClientSize = new Size(287, 153);
             Controls.Add(display_btn);
             Controls.Add(back_btn);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "START SCREEN";
