@@ -63,48 +63,10 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             else
             {
 
-                BookingClass bkclass = new BookingClass(id, contactName, contactEmail, activity, duration, startTime);
-                BookingClass bkclassRet = new BookingClass();
-
-                DataTable bookingTable = new DataTable();
-                bookingTable.Columns.Add("id", typeof(string));
-                bookingTable.Columns.Add("contact", typeof(string));
-                bookingTable.Columns.Add("contactEmail", typeof(string));
-                bookingTable.Columns.Add("activity", typeof(string));
-                bookingTable.Columns.Add("duration", typeof(string));
-                bookingTable.Columns.Add("starttime", typeof(string));
-
-
-
-                BinaryFormatter bf = new BinaryFormatter();
-
-                FileStream serialiseFunc = new FileStream("booking.dat", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
-                Console.WriteLine(serialiseFunc.Name);
-                try
-                {
-                    using (serialiseFunc)
-                    {
-                        if (serialiseFunc.Length != 0)
-                        {
-                            bookingTable = (DataTable)bf.Deserialize(serialiseFunc);
-                            bookingTable.Rows.Add(bkclassRet.BookingID, bkclassRet.ContactName, bkclassRet.ContactEmail, bkclassRet.Activity, bkclassRet.Duration, bkclassRet.StartTime);
-                            bookingTable.Rows.Add(bkclass.BookingID, bkclass.ContactName, bkclass.ContactEmail, bkclass.Activity, bkclass.Duration, bkclass.StartTime);
-                            bf.Serialize(serialiseFunc, bookingTable);
-                        }
-                        else
-                        {
-                            bookingTable.Rows.Add(bkclass.BookingID, bkclass.ContactName, bkclass.ContactEmail, bkclass.Activity, bkclass.Duration, bkclass.StartTime);
-                            bf.Serialize(serialiseFunc, bookingTable);
-                        }
-                        notificationLabel.Show();
-                        notificationLabel.Text = "Object Serialized";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    notificationLabel.Show();
-                    notificationLabel.Text = ex.Message;
-                }
+                var bookings = new List<BookingClass>();
+                bookings.Add(new BookingClass() { BookingID = id,Duration  = duration,StartTime = startTime, ContactEmail = contactEmail, ContactName = contactName, Activity = activity });
+                SerializeDeserialize serializeDeserialize = new SerializeDeserialize();
+                serializeDeserialize.Serialize(bookings, "booking.dat");
             }
         }
 

@@ -36,7 +36,7 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             bookingTable.Columns.Add("starttime", typeof(string));
 
 
-            FileStream deSerialiseFunc = new FileStream("booking.dat", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+       /*     FileStream deSerialiseFunc = new FileStream("booking.dat", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
             try
             {
                 using (deSerialiseFunc)
@@ -53,7 +53,19 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             catch
             {
                 managerNotificationLabel.Text = "An error has occured";
+            }*/
+            SerializeDeserialize dr = new SerializeDeserialize();
+
+       
+
+            List<BookingClass> res = dr.Deserialize("booking.dat");
+
+            foreach (BookingClass bookingClass in res)
+            {
+                bookingTable.Rows.Add(bookingClass.BookingID, bookingClass.ContactName, bookingClass.ContactEmail, bookingClass.Activity, bookingClass.Duration, bookingClass.StartTime);
             }
+
+            BookingsList.DataSource = bookingTable;
         }
     }
 }

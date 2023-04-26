@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SUNDERLAND_SPORTS_CLUB_BOOKING.Models
 {
     [Serializable]
-    internal class BookingClass
+    public class BookingClass 
     {   
         string bookingID;
         string contactName;
@@ -36,5 +37,6 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING.Models
         public string Activity { get => activity; set => activity = value; }
         public string Duration { get => duration; set => duration = value; }
         public string StartTime { get => startTime; set => startTime = value; }
+
     }
 }
