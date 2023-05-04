@@ -32,6 +32,7 @@
             label1 = new Label();
             BookingsList = new DataGridView();
             managerNotificationLabel = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)BookingsList).BeginInit();
             SuspendLayout();
             // 
@@ -69,11 +70,22 @@
             managerNotificationLabel.TabIndex = 6;
             managerNotificationLabel.Text = "Filter";
             // 
+            // button1
+            // 
+            button1.Location = new Point(22, 22);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 8;
+            button1.Text = "back";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // BookingManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(683, 481);
+            Controls.Add(button1);
             Controls.Add(managerNotificationLabel);
             Controls.Add(BookingsList);
             Controls.Add(label1);
@@ -92,5 +104,6 @@
         private Label label1;
         private DataGridView BookingsList;
         private Label managerNotificationLabel;
+        private Button button1;
     }
 }

@@ -23,7 +23,10 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
         public Form3()
         {
             InitializeComponent();
-
+            indvbooking_rdobtn.Checked = true;
+            starttime_txtbox.Format = DateTimePickerFormat.Custom;
+            starttime_txtbox.CustomFormat = "HH:mm:tt";
+            starttime_txtbox.ShowUpDown = true;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -47,7 +50,8 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             string activity = activity_combox.Text;
             string contactName = contactname_txtbox.Text;
             string contactEmail = contactemail_txtbox.Text;
-           
+            string date = dateTimePicker1.Text;
+
             Classes classes = new Classes();
 
             if (string.IsNullOrEmpty(id)
@@ -56,6 +60,7 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
                 || string.IsNullOrEmpty(activity_combox.Text)
                 || string.IsNullOrEmpty(contactname_txtbox.Text)
                 || string.IsNullOrEmpty(contactemail_txtbox.Text)
+                || string.IsNullOrEmpty(dateTimePicker1.Text)
                 )
             {
 
@@ -63,22 +68,46 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
                 notificationLabel.Text = " Fields cannot be empty";
 
             }
-            else if(int.TryParse(id_txtbox.Text, out int n) == false )
+            else if (int.TryParse(id_txtbox.Text, out int n) == false)
             {
                 notificationLabel.Show();
                 notificationLabel.Text = "id must be a number";
 
             }
-            else if(classes.IsEmailValid(contactemail_txtbox.Text) == false)
+            else if (classes.IsEmailValid(contactemail_txtbox.Text) == false)
             {
                 notificationLabel.Show();
                 notificationLabel.Text = "email is not valid";
             }
-            else 
+            else
             {
 
+                string bkType;
+                if (grpbooking_rdobtn.Checked == true)
+                {
+                    if (coach_combox.SelectedItem.ToString() == "Yes")
+                    {
+                        bkType = "group / " + parti_txtbox.Text + " Person/s / Coach Needed";
+                    }
+                   else
+                    {
+                        bkType = "group / " + parti_txtbox.Text + " Person/s / No Coach";
+                    }
+                }
+                else
+                {
+                    if (goldcard_combox.SelectedItem.ToString() == "Yes")
+                    {
+                        bkType = "Individual / Gold Card Member / " + memno_txtbox.Text;
+                    }
+                    else
+                    {
+                        bkType = "Individual / non-member ";
+                    }
+                }
+
                 var bookings = new List<BookingClass>();
-                bookings.Add(new BookingClass() { BookingID = id,Duration  = duration,StartTime = startTime, ContactEmail = contactEmail, ContactName = contactName, Activity = activity });
+                bookings.Add(new BookingClass() { BookingID = id, Duration = duration, StartTime = startTime, ContactEmail = contactEmail, ContactName = contactName, Activity = activity, Date = date, BkType = bkType });
                 SerializeDeserialize serializeDeserialize = new SerializeDeserialize();
                 serializeDeserialize.Serialize(bookings, "booking.dat");
             }

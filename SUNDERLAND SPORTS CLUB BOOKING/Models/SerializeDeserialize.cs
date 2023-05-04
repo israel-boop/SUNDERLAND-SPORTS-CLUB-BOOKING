@@ -46,8 +46,10 @@ public class SerializeDeserialize
                 FileStream ms = new FileStream(filename, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
                 formatter.Serialize(ms, bk);
                 
+                ms.Flush();
                 ms.Close();
                 ms.Dispose();
+                
             }
         }
          catch(Exception ex)
@@ -65,6 +67,7 @@ public class SerializeDeserialize
          BinaryFormatter formatter = new BinaryFormatter();
 
          //Reading the file from the server  
+
          FileStream fs = File.Open(filename, FileMode.Open);
 
          bk = (List<BookingClass>)formatter.Deserialize(fs);
