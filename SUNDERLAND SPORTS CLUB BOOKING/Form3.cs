@@ -6,9 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Reflection.Emit;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -45,7 +47,8 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
             string activity = activity_combox.Text;
             string contactName = contactname_txtbox.Text;
             string contactEmail = contactemail_txtbox.Text;
-
+           
+            Classes classes = new Classes();
 
             if (string.IsNullOrEmpty(id)
                 || string.IsNullOrEmpty(starttime_txtbox.Text)
@@ -60,7 +63,18 @@ namespace SUNDERLAND_SPORTS_CLUB_BOOKING
                 notificationLabel.Text = " Fields cannot be empty";
 
             }
-            else
+            else if(int.TryParse(id_txtbox.Text, out int n) == false )
+            {
+                notificationLabel.Show();
+                notificationLabel.Text = "id must be a number";
+
+            }
+            else if(classes.IsEmailValid(contactemail_txtbox.Text) == false)
+            {
+                notificationLabel.Show();
+                notificationLabel.Text = "email is not valid";
+            }
+            else 
             {
 
                 var bookings = new List<BookingClass>();
